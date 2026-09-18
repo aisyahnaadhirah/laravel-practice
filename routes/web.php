@@ -19,3 +19,5 @@ Route::put('/students/{id}', [StudentController::class, 'update']);
 Route::delete('/students/{id}', [StudentController::class, 'destroy']);*/
 
 Route::resource('students', StudentController::class);
+
+Route::livewire('/counter', 'counter');
