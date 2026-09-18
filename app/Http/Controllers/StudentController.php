@@ -25,8 +25,8 @@ class StudentController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:students,email',
-            'course_id' => 'required|exists:courses,id',
+            'email' => 'required|email|unique:pgsql.students,email',
+            'course_id' => 'required|exists:pgsql.courses,id',
         ]); //nak check semua field wajib diisi
 
         Student::create($validated); //yang buat insert ke table students
@@ -50,9 +50,9 @@ class StudentController extends Controller
             'email' => [
                 'required',
                 'email',
-                Rule::unique('students', 'email')->ignore($id),  //ignore $id maksudnya email mesti unique
+                Rule::unique('pgsql.students', 'email')->ignore($id),  //ignore $id maksudnya email mesti unique
             ],
-            'course_id' => 'required|exists:courses,id',
+            'course_id' => 'required|exists:pgsql.courses,id',
         ]);
 
         $student->update($validated); //update row id tu je

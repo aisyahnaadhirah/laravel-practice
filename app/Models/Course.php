@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+    protected $connection = 'pgsql';
     protected $fillable = [
         'course_name',
     ];
