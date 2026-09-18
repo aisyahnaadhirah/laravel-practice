@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule; //rule untuk validate email supaya tak duplicate
 class StudentController extends Controller
 {
     public function index(){
+        // Get all students data with their course
         $students = Student::with('course')->get(); 
 
         return view ('students.index', compact('students')); //hantar variable $students kepada view
