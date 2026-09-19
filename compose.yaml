@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-docker
+    environment:
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: docker_practice
+    ports: 
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+
+volumes:
+  postgres-data:
+    external: true
